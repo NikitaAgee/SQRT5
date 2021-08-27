@@ -19,25 +19,27 @@ int main(void)
 
     if (unitest() == END_PROGRAM)
     {
-        return 202;
+        getchar();
+        getchar();
+        return UNIT_FAIL;
     }
 
     start_print();
 
-    while(1) // Г‚ГўГ®Г¤ ГЄГ®ГЅГґГЁГ¶ГЁГҐГ­ГІГ®Гў
+    while(1) // Основной цикл программы
     {
 
- sc_chek = abc_scan(&a, &b, &c);
+    sc_chek = abc_scan(&a, &b, &c);
 
         if (sc_chek == END_PROGRAM)
         {
-            break;
+            continue;
         }
 
         x_1 = 0;
         x_2 = 0;
 
-        if ( abc_lim_over_print (a, b, c) )         // ГЏГ°Г®ГўГҐГ°ГЄГ  ГЄГ®ГЅГґГЁГ¶ГЁГҐГ­ГІГ®Гў
+        if ( abc_lim_over_print (a, b, c) )     // проверка на переполнение коэфициентв
         {
             continue;
         }
@@ -46,13 +48,13 @@ int main(void)
 
             reshalka_error = reshalka (a, b, c, &x_1, &x_2);
 
-            if (reshalka_error == -2)     // ГђГҐГёГҐГ­ГЁГҐ ГіГ°Г ГўГ­ГҐГ­ГЁГї
+            if (reshalka_error == OVERFLOW_DIS)     // проверка на переполнение дискриминанта
             {
                 continue;
             }
             else
             {
-                x_lim_over_print(x_1, x_2, reshalka_error);           // Г‚Г»ГўГ®Г¤ ГЄГ®Г°Г­ГҐГ©
+                x_lim_over_print(x_1, x_2, reshalka_error);           // провека корней на переполнение и их вывод
             }
         }
     }

@@ -75,9 +75,9 @@ int qadrat(double a, double b, double c, double *x_1, double *x_2)
     assert(!isinf(a));
     assert(!isinf(b));
     assert(!isinf(c));
-    assert(!(x_1 == 0));
-    assert(!(x_2 == 0));
-    assert(!(x_1 == x_2));
+    assert(x_1 != 0);
+    assert(x_2 != 0);
+    assert(x_1 != x_2);
 
     double Dis = 0;   // Дискриминант
     double skDis = 0; // Корень дискриминанта
@@ -132,7 +132,7 @@ int linerial(double b, double c, double *x)
 
     assert(!isinf(b));
     assert(!isinf(c));
-    assert(!(x == 0));
+    assert(x != 0);
 
     if ((fabs(b) <= MIN_DELT) && (fabs(c) <= MIN_DELT))        //проверка условий бесконечного количества решений
     {
@@ -158,9 +158,9 @@ int reshalka(double a, double b, double c, double* x_1, double* x_2)
     assert(!isinf(a));
     assert(!isinf(b));
     assert(!isinf(c));
-    assert(!(x_1 == 0));
-    assert(!(x_2 == 0));
-    assert(!(x_1 == x_2));
+    assert(x_1 != 0);
+    assert(x_2 != 0);
+    assert(x_1 != x_2);
 
     if (fabs(a) <= MIN_DELT)   //проверка условий бесконечного количества решений
     {
@@ -175,12 +175,12 @@ int reshalka(double a, double b, double c, double* x_1, double* x_2)
 int abc_scan(double *a, double *b, double *c)
 {
 
-    assert(!(a == 0));
-    assert(!(b == 0));
-    assert(!(c == 0));
-    assert(!(a == b));
-    assert(!(a == c));
-    assert(!(b == c));
+    assert(a != 0);
+    assert(b != 0);
+    assert(c != 0);
+    assert(a != b);
+    assert(a != c);
+    assert(b != c);
 
     int take_stok = 0;                    // Значение инициирующее подведение итога
     int sc_out = 0;                       // Значение для записи вывода skan_variable
@@ -238,8 +238,8 @@ int abc_scan(double *a, double *b, double *c)
 int skan_variable(const char var_name[], double* var)
 {
 
-    assert (!(var == 0));
-    assert (!(var_name == "\n"));
+    assert (var != 0);
+    assert (var_name != "\n");
 
     int sc_chek = 0;         // Проверка наличия в вводе числа (первым в буфере)
     int sc_error = 0;        // Проверка наличия в воде символа кроме первого # и \n
@@ -354,8 +354,8 @@ void end_print(void)
 void overflow_alarm (double nom, char befor_variable[], char name_variable[], char after_variable[], bool* overflow)
 {
 
-    assert(!(isnan(nom)));
-    assert(!(overflow == 0));
+    assert(!isnan(nom));
+    assert(overflow != 0);
 
     if (isinf(nom))
     {

@@ -7,19 +7,23 @@
 #include <assert.h>
 
 #ifndef MIN_DELT
-    #define MIN_DELT 0.00001              ///< Значение, которое обозначает минимальное значение модуля не нулевого числа
+    #define MIN_DELT 0.00001   ///< Значение, которое обозначает минимальное значение модуля не нулевого числа
+#endif
+
+#ifndef UNIT_FAIL
+    #define UNIT_FAIL 202      ///< Значение, вывода main при провале юнит теста
 #endif
 
 #ifndef NUM_AF_POINT
-    #define NUM_AF_POINT 4                ///< Количество цифр после запятой при выводе
+    #define NUM_AF_POINT 4     ///< Количество цифр после запятой при выводе
 #endif
 
 #ifndef NUM_OF_COEF
-    #define NUM_OF_COEF 3                 ///< Количество коэфициентов
+    #define NUM_OF_COEF 3      ///< Количество коэфициентов
 #endif
 
 #ifndef END_SIMVOL
-    #define END_SIMVOL '#' ///< Символ при вводе которого завершается программа
+    #define END_SIMVOL '#'     ///< Символ при вводе которого завершается программа
 #endif
 
 

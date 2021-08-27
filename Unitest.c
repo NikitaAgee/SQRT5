@@ -23,15 +23,20 @@ int unitest_reshalka(void)
         reshalka_error = reshalka (a, b, c, &x_1, &x_2);
         if (((fabs(x_1 - UNITEST_OUT_RESHALKA[nom_of_unitest][0])) > U_MIN_DELT) || ((fabs(x_2 - UNITEST_OUT_RESHALKA[nom_of_unitest][1])) > U_MIN_DELT) || ((fabs(reshalka_error - UNITEST_OUT_RESHALKA[nom_of_unitest][2])) > U_MIN_DELT))
         {
+            printf("-------------------------------\n");
             printf("reshalka юнитест %d провален\n", nom_of_unitest);
+            printf("-------------------------------\n");
             printf("Ввод:\n");
             printf("a = %f\n", a);
             printf("b = %f\n", b);
             printf("c = %f\n", c);
-            printf("Вывод:  |Реальность|  Ожидание\n");
-            printf("x_1     |%10f|%10f\n", x_1, UNITEST_OUT_RESHALKA[nom_of_unitest][0]);
-            printf("x_2     |%10f|%10f\n", x_2, UNITEST_OUT_RESHALKA[nom_of_unitest][1]);
-            printf("res_err |%10f|%10f\n", reshalka_error, UNITEST_OUT_RESHALKA[nom_of_unitest][2]);
+            printf("-------------------------------\n");
+            printf("Вывод:  |Ожидание  |Рреальность\n");
+            printf("x_1     |%10f|%10f\n", UNITEST_OUT_RESHALKA[nom_of_unitest][0], x_1);
+            printf("x_2     |%10f|%10f\n", UNITEST_OUT_RESHALKA[nom_of_unitest][1], x_2);
+            printf("res_err |%10f|%10f\n", UNITEST_OUT_RESHALKA[nom_of_unitest][2], reshalka_error);
+            printf("===============================\n");
+            printf("[Enter] для закрытия окна\n");
             return END_PROGRAM;
         }
         nom_of_unitest++;
@@ -61,15 +66,20 @@ int unitest_qadrat(void)
         qadrat_error = qadrat (a, b, c, &x_1, &x_2);
         if (((fabs(x_1 - UNITEST_OUT_QADRAT[nom_of_unitest][0])) > U_MIN_DELT) || ((fabs(x_2 - UNITEST_OUT_QADRAT[nom_of_unitest][1])) > U_MIN_DELT) || ((fabs(qadrat_error - UNITEST_OUT_QADRAT[nom_of_unitest][2])) > U_MIN_DELT))
         {
+            printf("-------------------------------\n");
             printf("qadrat юнитест %d провален\n", nom_of_unitest);
+            printf("-------------------------------\n");
             printf("Ввод:\n");
             printf("a = %f\n", a);
             printf("b = %f\n", b);
             printf("c = %f\n", c);
-            printf("Вывод:  |Реальность|  Ожидание\n");
-            printf("x_1     |%10f|%10f\n", x_1, UNITEST_OUT_QADRAT[nom_of_unitest][0]);
-            printf("x_2     |%10f|%10f\n", x_2, UNITEST_OUT_QADRAT[nom_of_unitest][1]);
-            printf("res_err |%10f|%10f\n", qadrat_error, UNITEST_OUT_QADRAT[nom_of_unitest][2]);
+            printf("-------------------------------\n");
+            printf("Вывод:  |Ожидание  |Рреальность\n");
+            printf("x_1     |%10f|%10f\n", UNITEST_OUT_QADRAT[nom_of_unitest][0], x_1);
+            printf("x_2     |%10f|%10f\n", UNITEST_OUT_QADRAT[nom_of_unitest][1], x_2);
+            printf("res_err |%10f|%10f\n", UNITEST_OUT_QADRAT[nom_of_unitest][2], qadrat_error);
+            printf("===============================\n");
+            printf("[Enter] для закрытия окна\n");
             return END_PROGRAM;
         }
         nom_of_unitest++;
@@ -97,13 +107,18 @@ int unitest_linerial(void)
         linerial_error = linerial (b, c, &x_1);
         if (((fabs(x_1 - UNITEST_OUT_LINERIAL[nom_of_unitest][0])) > U_MIN_DELT) || ((fabs(linerial_error - UNITEST_OUT_LINERIAL[nom_of_unitest][1])) > U_MIN_DELT))
         {
+            printf("-------------------------------\n");
             printf("linerial юнитест %d провален\n", nom_of_unitest);
+            printf("-------------------------------\n");
             printf("Ввод:\n");
             printf("b = %f\n", b);
             printf("c = %f\n", c);
-            printf("Вывод:  |Реальность|  Ожидание\n");
-            printf("x_1     |%10f|%10f\n", x_1, UNITEST_OUT_LINERIAL[nom_of_unitest][0]);
-            printf("res_err |%10f|%10f\n", linerial_error, UNITEST_OUT_LINERIAL[nom_of_unitest][1]);
+            printf("-------------------------------\n");
+            printf("Вывод:  |Ожидание  |Рреальность\n");
+            printf("x_1     |%10f|%10f\n", UNITEST_OUT_LINERIAL[nom_of_unitest][0], x_1);
+            printf("res_err |%10f|%10f\n", UNITEST_OUT_LINERIAL[nom_of_unitest][1], linerial_error);
+            printf("===============================\n");
+            printf("[Enter] для закрытия окна\n");
             return END_PROGRAM;
         }
         nom_of_unitest++;
