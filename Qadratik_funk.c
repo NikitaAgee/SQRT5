@@ -75,8 +75,8 @@ int qadrat(double a, double b, double c, double *x_1, double *x_2)
     assert(!isinf(a));
     assert(!isinf(b));
     assert(!isinf(c));
-    assert(x_1 != 0);
-    assert(x_2 != 0);
+    assert(x_1 != NULL);
+    assert(x_2 != NULL);
     assert(x_1 != x_2);
 
     double Dis = 0;   // ƒискриминант
@@ -132,7 +132,7 @@ int linerial(double b, double c, double *x)
 
     assert(!isinf(b));
     assert(!isinf(c));
-    assert(x != 0);
+    assert(x != NULL);
 
     if ((fabs(b) <= MIN_DELT) && (fabs(c) <= MIN_DELT))        //проверка условий бесконечного количества решений
     {
@@ -158,8 +158,8 @@ int reshalka(double a, double b, double c, double* x_1, double* x_2)
     assert(!isinf(a));
     assert(!isinf(b));
     assert(!isinf(c));
-    assert(x_1 != 0);
-    assert(x_2 != 0);
+    assert(x_1 != NULL);
+    assert(x_2 != NULL);
     assert(x_1 != x_2);
 
     if (fabs(a) <= MIN_DELT)   //проверка условий бесконечного количества решений
@@ -175,9 +175,9 @@ int reshalka(double a, double b, double c, double* x_1, double* x_2)
 int abc_scan(double *a, double *b, double *c)
 {
 
-    assert(a != 0);
-    assert(b != 0);
-    assert(c != 0);
+    assert(a != NULL);
+    assert(b != NULL);
+    assert(c != NULL);
     assert(a != b);
     assert(a != c);
     assert(b != c);
@@ -238,7 +238,7 @@ int abc_scan(double *a, double *b, double *c)
 int skan_variable(const char var_name[], double* var)
 {
 
-    assert (var != 0);
+    assert (var != NULL);
     assert (var_name != "\n");
 
     int sc_chek = 0;         // ѕроверка наличи€ в вводе числа (первым в буфере)
