@@ -1,65 +1,34 @@
 
-//#include "Qadratik_const_fails.h"
-//#include "Qadratik_funk.c"
-//#include "Unitest.c"
+#include "Qadratik_lib.h"
+#include "Unitest_Qd_lib.h"
 
 
-#include "Pre_Qadratik.h"
+const int UNIT_FAIL = 202; ///< Значение, вывода main при провале юнит теста
 
 
 int main(void)
 {
-
     setlocale(LC_CTYPE,"Russian"); //Для того, чтобы выводились русские символы
 
-    double a = 0, b = 0, c = 0; // Ввод и инициализация переменных для коэфициентов
-    double x_1 = 0, x_2 = 0; // Ввод и инициализация переменных для корней
-    int reshalka_error = OK; // Переменная для записи вывода функции reshalka
-    int sc_chek = OK; // // Переменная для записи вывода функции abc_scan
+    double a = 0, b = 0, c = 0; // Коэфициенты
+    double x_1 = 0, x_2 = 0;    // Корни
 
-    if (unitest() == END_PROGRAM)
+    if (unitest_all_Qd() == UNITEST_ERROR)
     {
-        getchar();
         getchar();
         return UNIT_FAIL;
     }
 
-    start_print();
+    scan_abc(&a, &b, &c);
 
-    while(1) // Основной цикл программы
-    {
+    int solver_out = solver(a, b, c, &x_1, &x_2);
 
-    sc_chek = abc_scan(&a, &b, &c);
+    print_x(x_1, x_2, solver_out);    // вывод корней
 
-        if (sc_chek == END_PROGRAM)
-        {
-            continue;
-        }
-
-        x_1 = 0;
-        x_2 = 0;
-
-        if ( abc_lim_over_print (a, b, c) )     // проверка на переполнение коэфициентв
-        {
-            continue;
-        }
-        else
-        {
-
-            reshalka_error = reshalka (a, b, c, &x_1, &x_2);
-
-            if (reshalka_error == OVERFLOW_DIS)     // проверка на переполнение дискриминанта
-            {
-                continue;
-            }
-            else
-            {
-                x_lim_over_print(x_1, x_2, reshalka_error);           // провека корней на переполнение и их вывод
-            }
-        }
-    }
-
-    end_print();
+    getchar();
+    getchar();
 
     return 0;
 }
+
+
