@@ -160,22 +160,13 @@ void scan_abc(double *a, double *b, double *c)
 
     int scan_out = 0;         // Вывод scanf
     int any_char_check = 0;   // Проверка на наличие лишних символов
-    char ch = '\n'
 
     while(1)
     {
         printf("Введите коэфициенты: ");
         scan_out = scanf("%lf %lf %lf", a, b, c);
 
-        if (getchar() != '\n')
-        {
-            any_char_check = 1;
-        }
-
-        char ch = '\n'
-        ch = getchar();
-
-        buffer_cleaner();
+        any_char_check = buffer_cleaner();
 
         if ((scan_out == 3) && (any_char_check == 0))
         {
@@ -221,4 +212,6 @@ int buffer_cleaner()
             ch = getchar();
             char_counter++;
         }
+
+    return char_counter;
 }
